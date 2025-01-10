@@ -1,12 +1,13 @@
+// src/pages/Cms/Login/Login.js
 import React from 'react';
+import LoginForm from './LoginForm';
 
 const Login = () => {
-    return (
-        <div>
-            <h1>Logowanie</h1>
-            <p>Tu będzie logowanie.</p>
-        </div>
-    );
+  return (
+    <div>
+      <LoginForm />
+    </div>
+  );
 };
 
 export default Login;
