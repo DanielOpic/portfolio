@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import About from './pages/About';
-import Experience from './pages/Experience';
-import Portfolio from './pages/Portfolio';
-import Login from './pages/Login';
+import About from './pages/Web/About/About';
+import Experience from './pages/Web/Experience/Experience';
+import Portfolio from './pages/Web/Portfolio/Portfolio';
+import Login from './pages/Cms/Login/Login';
 import './App.scss';
 
 
