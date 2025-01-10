@@ -11,6 +11,8 @@ const Header = () => {
                     <li><Link to="/experience">Doświadczenie</Link></li>
                     <li><Link to="/portfolio">Portfolio</Link></li>
                     <li><Link to="/login">Logowanie</Link></li>
+                    <li><Link to="/dashboard">Dashboard</Link></li>
+                    <li><Link to="/cms/Portfolio">Portfolio</Link></li>
                 </ul>
             </nav>
         </header>

@@ -5,6 +5,9 @@ import About from './pages/Web/About/About';
 import Experience from './pages/Web/Experience/Experience';
 import Portfolio from './pages/Web/Portfolio/Portfolio';
 import Login from './pages/Cms/Login/Login';
+import Dashboard from './pages/Cms/Dashboard/Dashboard';
+import CmsPortfolio from './pages/Cms/Portfolio/Portfolio';
+
 import './App.scss';
 
 
@@ -18,6 +21,8 @@ const App = () => {
                   <Route path="/experience" element={<Experience />} />
                   <Route path="/portfolio" element={<Portfolio />} />
                   <Route path="/login" element={<Login />} />
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/cms/Portfolio" element={<CmsPortfolio />} />
               </Routes>
           </div>
       </Router>
