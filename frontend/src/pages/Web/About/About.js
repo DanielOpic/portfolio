@@ -1,11 +1,10 @@
 import React from 'react';
 import './About.scss';
-import profileImage from '../../../assets/images/profilowe.jpg';
 
 const About = () => {
     return (
         <div className="about">
-            <img src={profileImage} alt="Moje zdjęcie" className="about__image" />
+            <img src="/img/profilowe.jpg" alt="Moje zdjęcie" className="about__image" />
             <div className="about__content">
                 <h1>O mnie</h1>
                 <p>
