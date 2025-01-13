@@ -7,12 +7,12 @@ const Header = () => {
         <header>
             <nav>
                 <ul>
-                    <li><Link to="/">O mnie</Link></li>
-                    <li><Link to="/experience">Doświadczenie</Link></li>
-                    <li><Link to="/portfolio">Portfolio</Link></li>
-                    <li><Link to="/login">Logowanie</Link></li>
-                    <li><Link to="/dashboard">Dashboard</Link></li>
-                    <li><Link to="/cms/Portfolio">Portfolio</Link></li>
+                    <li><Link className="btn" to="/">O mnie</Link></li>
+                    <li><Link className="btn" to="/experience">Doświadczenie</Link></li>
+                    <li><Link className="btn" to="/portfolio">Portfolio</Link></li>
+                    <li><Link className="btn" to="/login">Logowanie</Link></li>
+                    <li><Link className="btn" to="/dashboard">Dashboard</Link></li>
+                    <li><Link className="btn" to="/cms/Portfolio">Portfolio</Link></li>
                 </ul>
             </nav>
         </header>

@@ -1,10 +1,8 @@
 header {
-    background-color: #333;
-    padding: 1rem;
-
+    width:200px;
     nav ul {
         display: flex;
-        justify-content: space-around;
+        flex-direction: column;
         list-style-type: none;
         padding: 0;
         margin: 0;
@@ -15,14 +13,8 @@ header {
     }
 
     nav ul li a {
-        color: #fff;
-        text-decoration: none;
-        padding: 0.5rem 1rem;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-
-    nav ul li a:hover {
-        background-color: #555;
+        color: #444;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
 }

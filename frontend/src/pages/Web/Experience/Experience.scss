@@ -1,3 +1,4 @@
+$color : #30d56c;
 .experience {
     padding: 20px;
 
@@ -8,34 +9,64 @@
 
     &__list {
         list-style: none;
-        padding: 0;
-
+        padding: 0 0 0 50px;
+        position: relative;
+        &:before {
+            background: #f3f5f8;
+            box-shadow: inset 2px 2px 2px #cdcdcd, inset -2px -2px 2px #fafafa;
+            bottom: 0;
+            content: "";
+            left: 1.375rem;
+            position: absolute;
+            top: 10px;
+            width: 0.5rem;
+            height: 100%;
+            border-radius: 3em;
+        }
         &__item {
             margin-bottom: 20px;
             padding: 15px;
             border: 1px solid #ddd;
             border-radius: 8px;
-
-            h2 {
-                margin: 0;
-                font-size: 18px;
-                color: #333;
-            }
-
             h3 {
-                margin: 5px 0;
-                font-size: 16px;
-                color: #666;
+                position: relative;
+                font-weight: bold;
+                &:before {
+                    content: "";
+                    background: $color;
+                    top: 8px;
+                    left:-43px;
+                    position: absolute;
+                    width: 0.5rem;
+                    height: 16px;
+                    border-radius: 3em;
+                    opacity: .8;
+                }
             }
-
-            &__dates {
-                font-size: 14px;
-                color: #999;
-                margin: 5px 0;
+            &__dates{
+                display: flex;
+                align-items: center;
+                color:#666;
+                .ico{
+                    margin-right: 10px;
+                }
+                .from, .to{
+                    letter-spacing: 1px;
+                }
+                .sep{
+                    padding: 0 10px;
+                }
+                .to{
+                    &.current{
+                        color:$color;
+                        font-weight: bold;
+                    }
+                }
             }
-
             p {
-                font-size: 14px;
+                font-size: 16px;
+                line-height: 1.6;
+                text-align: justify;
                 color: #444;
             }
         }

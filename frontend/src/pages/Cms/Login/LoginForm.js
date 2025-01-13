@@ -25,28 +25,26 @@ const LoginForm = () => {
 
   return (
     <div className="login-container">
-      <h2>Login</h2>
+      <h2>Logowanie <span>do CMS</span></h2>
       <form className="login-form">
         <div className="input-group">
-          <label htmlFor="username">Username:</label>
           <input
             type="text"
             id="username"
             name="username"
             value={formData.username}
             onChange={handleChange}
-            placeholder="Enter your username"
+            placeholder="Login"
           />
         </div>
         <div className="input-group password-group">
-          <label htmlFor="password">Password:</label>
           <input
             type={showPassword ? 'text' : 'password'}
             id="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
-            placeholder="Enter your password"
+            placeholder="Hasło"
           />
           <FontAwesomeIcon
             icon={showPassword ? faLockOpen : faLock}
@@ -54,8 +52,8 @@ const LoginForm = () => {
             className="password-icon"
           />
         </div>
-        <button type="submit" className="login-btn">
-          Log In
+        <button type="submit" className="btn">
+          Zaloguj się
         </button>
       </form>
     </div>

@@ -1,0 +1,35 @@
+.list{
+    padding: 10px;
+    &__details{
+        &__one{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            .img{
+                width: 100px;
+                min-height: 100px;
+                background-repeat: no-repeat;
+                background-size: contain;
+                background-color: #eee;
+                background-position: center center;
+                margin-right: 10px;
+            }
+            .title{
+                flex:1;
+            }
+            .btns{
+                flex:1;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+                button{
+                    margin: 5px;
+                }
+            }
+        }
+    }
+    img{
+        max-width: 100px;
+    }
+}

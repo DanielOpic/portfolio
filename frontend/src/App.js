@@ -14,16 +14,20 @@ import './App.scss';
 const App = () => {
   return (
       <Router>
-          <Header />
-          <div>
-              <Routes>
-                  <Route path="/" element={<About />} />
-                  <Route path="/experience" element={<Experience />} />
-                  <Route path="/portfolio" element={<Portfolio />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/cms/Portfolio" element={<CmsPortfolio />} />
-              </Routes>
+          <div className="main">
+            <div className="box">
+                <Header />
+            </div>
+            <div className="mainbox box">
+                <Routes >
+                    <Route path="/" element={<About />} />
+                    <Route path="/experience" element={<Experience />} />
+                    <Route path="/portfolio" element={<Portfolio />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/dashboard" element={<Dashboard />} />
+                    <Route path="/cms/Portfolio" element={<CmsPortfolio />} />
+                </Routes>
+            </div>
           </div>
       </Router>
   );

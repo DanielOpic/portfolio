@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import List from './List';
 import Edit from './Edit';
+import '../../../styles/cms.scss';
 
 const CmsPortfolio = () => {
   const [portfolioItems, setPortfolioItems] = useState([
-    { id: 1, title: 'Projekt 1', description: 'Opis projektu 1', image: 'test.jpg' },
-    { id: 2, title: 'Projekt 2', description: 'Opis projektu 2', image: 'test.jpg' }
+    { id: 1, title: 'Projekt 1', description: 'Opis projektu 1', image: '/img/test.jpg' },
+    { id: 2, title: 'Projekt 2', description: 'Opis projektu 2', image: '/img/test.jpg' }
   ]);
 
   const [currentProject, setCurrentProject] = useState({ id: 0, title: '', description: '', image: '' });

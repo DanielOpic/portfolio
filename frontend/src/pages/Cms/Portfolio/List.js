@@ -2,19 +2,20 @@ import React from 'react';
 
 const List = ({ portfolioItems, editProject, deleteProject }) => {
   return (
-    <div>
+    <div className="list">
       <h3>Lista projektów</h3>
-      <ul className="list">
+      <div className="list__details">
         {portfolioItems.map(item => (
-          <li key={item.id}>
-            <h4>{item.title}</h4>
-            <p>{item.description}</p>
-            <img src={`${item.image}`} alt={item.title} />
-            <button onClick={() => editProject(item.id)}>Edytuj</button>
-            <button onClick={() => deleteProject(item.id)}>Usuń</button>
-          </li>
+          <div className="list__details__one" key={item.id}>
+            <div className="img" style={{ backgroundImage: `url(${item.image})` }}></div>
+            <div className="title">{item.title}</div>
+            <div className="btns">
+              <button onClick={() => editProject(item.id)}>Edytuj</button>
+              <button onClick={() => deleteProject(item.id)}>Usuń</button>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };
