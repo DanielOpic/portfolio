@@ -1,5 +1,17 @@
+
+
+textarea, input, select{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 10px 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    flex:1;
+}
+ 
+
 .list{
-    padding: 10px;
+    padding: 10px 0;
     &__details{
         &__one{
             display: flex;
@@ -23,13 +35,51 @@
                 display: flex;
                 align-items: center;
                 justify-content: flex-end;
-                button{
-                    margin: 5px;
+                .btn{
+                    margin:0 0 0 5px;
+                    padding: 5px 10px;
                 }
             }
         }
     }
     img{
         max-width: 100px;
+    }
+}
+.options{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0;
+    h3{
+        flex:1;
+    }
+    .btns{
+        display: flex;
+        .btn{
+            margin: 0 0 0 10px;
+            padding: 5px 10px;
+        }
+    }
+}
+.form{
+    padding: 10px 0;
+    &Group{
+        padding: 10px 0;
+        label{
+            display: block;
+        }
+    }
+    .btns{
+        margin-top: 10px;
+        padding: 10px 0;
+        border-top:1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .btn{
+            margin: 0 0 0 10px;
+            padding: 5px 10px;
+        }
     }
 }

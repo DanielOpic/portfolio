@@ -1,22 +1,20 @@
 import React, { useState, useEffect } from 'react';
 
-const Edit = ({ currentProject, setCurrentProject, saveData, cancelEdit }) => {
-  const [formData, setFormData] = useState({ title: '', description: '', image: '' });
+const Edit = ({ currentId, onChangeViewMode  }) => {
+  const [formData, setFormData] = useState({ id:0, title: '', description: '' });
 
+  // Załaduj dane na podstawie currentId, gdy currentId się zmieni
   useEffect(() => {
-    if (currentProject.id > 0) {
-      setFormData({
-        title: currentProject.title,
-        description: currentProject.description,
-        image: currentProject.image
-      });
-    }
-  }, [currentProject]);
+   
+    setFormData({
+      id:           currentId,
+      title:        '',
+      description:  '',
+      image:        '',
+    });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveData(formData); // Wywołanie funkcji saveData z aktualnym stanem formularza
-  };
+  }, [currentId]); // Będzie wywoływać się przy zmianie currentId
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,48 +22,45 @@ const Edit = ({ currentProject, setCurrentProject, saveData, cancelEdit }) => {
       ...formData,
       [name]: value
     });
-    setCurrentProject({
-      ...currentProject,
-      [name]: value
-    });
+  };
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('- backend - save')
   };
 
+
   return (
-    <div>
-      <h3>{currentProject.id === 0 ? 'Dodaj nowy projekt' : 'Edytuj projekt'}</h3>
+    <div className="form">
+      <h4>{formData.id === 0 ? 'Dodaj nowy element' : 'Edytuj element'}</h4>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Title:</label>
+
+        <div className="formGroup">
+          <label>Tytuł:</label>
           <input 
             type="text" 
             name="title" 
-            value={formData.title} 
+            value={formData.name} 
             onChange={handleChange} 
-            placeholder="Tytuł projektu" 
+            placeholder="Tytuł" 
           />
         </div>
-        <div>
-          <label>Description:</label>
+        <div className="formGroup">
+          <label>Opis:</label>
           <textarea 
             name="description" 
             value={formData.description} 
             onChange={handleChange} 
-            placeholder="Opis projektu" 
+            placeholder="Opis" 
+            rows="15"
           />
         </div>
-        <div>
-          <label>Image:</label>
-          <input 
-            type="text" 
-            name="image" 
-            value={formData.image} 
-            onChange={handleChange} 
-            placeholder="Nazwa pliku obrazu" 
-          />
+
+        <div className="btns">
+          <button className="btn" onClick={() => onChangeViewMode('list')}>Anuluj</button>
+          <button className="btn" type="submit">{formData.id === 0 ? 'Dodaj' : 'Zapisz'}</button>
         </div>
-        <button type="submit">{currentProject.id === 0 ? 'Dodaj' : 'Edytuj'}</button>
       </form>
-      <button onClick={cancelEdit}>Anuluj</button>
     </div>
   );
 };
