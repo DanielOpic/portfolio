@@ -12,9 +12,14 @@ header {
         margin: 0;
     }
 
-    nav ul li a {
+    nav ul li a,
+    nav ul li button {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: left;
         color: #444;
         margin-top: 10px;
         margin-bottom: 10px;
+        font-size: 16px;
     }
 }

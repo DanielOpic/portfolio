@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import About from './pages/Web/About/About';
 import Experience from './pages/Web/Experience/Experience';
@@ -8,28 +8,78 @@ import Login from './pages/Cms/Login/Login';
 import Dashboard from './pages/Cms/Dashboard/Dashboard';
 import CmsPortfolio from './pages/Cms/Portfolio/Portfolio';
 
+// Importowanie AuthContext i AuthProvider
+import { AuthProvider, useAuth } from './context/AuthContext'; 
+
+// Importowanie globalnych stylów
 import './App.scss';
 
+// Komponent ochrony tras, sprawdzający, czy użytkownik jest zalogowany
+const ProtectedRoute = ({ children }) => {
+    const { isLoggedIn } = useAuth(); // Sprawdzamy, czy użytkownik jest zalogowany
+    
+    // Jeśli nie jest zalogowany, przekierowujemy do strony logowania
+    return isLoggedIn ? children : <Navigate to="/login" />;
+  };
+
+// Komponent ochrony tras dla niezalogowanych użytkowników (trasa logowania)
+const PublicRoute = ({ children }) => {
+    const { isLoggedIn } = useAuth(); // Sprawdzamy, czy użytkownik jest zalogowany
+    
+    // Jeśli jest zalogowany, przekierowujemy na stronę główną lub dashboard
+    return !isLoggedIn ? children : <Navigate to="/dashboard" />;
+  };
+  
 
 const App = () => {
   return (
+    <AuthProvider> 
       <Router>
           <div className="main">
             <div className="box">
                 <Header />
             </div>
             <div className="mainbox box">
-                <Routes >
-                    <Route path="/" element={<About />} />
-                    <Route path="/experience" element={<Experience />} />
-                    <Route path="/portfolio" element={<Portfolio />} />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/cms/Portfolio" element={<CmsPortfolio />} />
-                </Routes>
+            <Routes>
+              {/* Publiczne trasy */}
+              <Route path="/" element={<About />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/portfolio" element={<Portfolio />} />
+              
+              {/* Trasa logowania - dostępna tylko dla niezalogowanych */}
+              <Route 
+                path="/login" 
+                element={
+                  <PublicRoute>
+                    <Login /> {/* Dostępne tylko dla niezalogowanych */}
+                  </PublicRoute>
+                } 
+              />
+
+              
+              {/* Ochrona trasy Dashboard - tylko dla zalogowanych */}
+              <Route 
+                path="/dashboard" 
+                element={
+                  <ProtectedRoute>
+                    <Dashboard /> {/* Tylko zalogowani użytkownicy będą mieli dostęp */}
+                  </ProtectedRoute>
+                } 
+              />
+              <Route 
+                path="/cms/Portfolio" 
+                element={
+                  <ProtectedRoute>
+                    <CmsPortfolio /> {/* Tylko zalogowani użytkownicy będą mieli dostęp */}
+                  </ProtectedRoute>
+                } 
+              />
+
+            </Routes>
             </div>
           </div>
       </Router>
+    </AuthProvider> 
   );
 };
 
