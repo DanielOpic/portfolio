@@ -1,61 +1,66 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Experience.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-
-const experiences = [
-    {
-        id: 1,
-        title: "Frontend Developer",
-        company: "Firma X",
-        dateFrom: "styczeń 2020",
-        dateTo: "current", // Oznaczenie, że jest w trakcie
-        description: "Tworzenie dynamicznych aplikacji webowych w technologii React.js."
-    },
-    {
-        id: 2,
-        title: "Backend Developer",
-        company: "Firma Y",
-        dateFrom: "lipiec 2018",
-        dateTo: "grudzień 2019",
-        description: "Rozwój aplikacji backendowych z wykorzystaniem CakePHP oraz MySQL."
-    },
-    {
-        id: 3,
-        title: "Junior Web Developer",
-        company: "Firma Z",
-        dateFrom: "wrzesień 2016",
-        dateTo: "czerwiec 2018",
-        description: "Wsparcie w tworzeniu stron internetowych oraz wdrażanie funkcjonalności w jQuery."
-    }
-];
+import { API_BASE_URL } from '../../../config/api'; // Import endpointu
 
 const Experience = () => {
+    const [items, setItems] = useState([]); // Domyślnie pusta lista
+    const [loading, setLoading] = useState(true); // Flaga ładowania
+    const [error, setError] = useState(null); // Flaga błędów
+
+    useEffect(() => {
+        // Pobranie danych z API
+        console.log(API_BASE_URL)
+        fetch(`${API_BASE_URL}/experience`)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Błąd w trakcie pobierania danych!');
+                }
+                return response.json();
+            })
+            .then(data => {
+                setItems(data); // Ustawienie pobranych danych
+                setLoading(false); // Wyłączenie ładowania
+            })
+            .catch(err => {
+                setError(err.message);
+                setLoading(false); // Wyłączenie ładowania mimo błędu
+            });
+    }, []); // Tylko raz przy montowaniu komponentu
+
+    if (loading) {
+        return <div className="experience">Ładowanie danych...</div>;
+    }
+
+    if (error) {
+        return <div className="experience">Wystąpił błąd: {error}</div>;
+    }
+
     return (
         <div className="experience">
             <h2>Moje <span>doświadczenie</span></h2>
             <ul className="experience__list">
-                {experiences.map((exp) => (
-                    <li key={exp.id} className="experience__list__item">
-                        <h3>{exp.title} - {exp.company}</h3>
+                {items.map((item) => (
+                    <li key={item.id} className="experience__list__item">
+                        <h3>{item.title} - {item.company}</h3>
 
                         <p className="experience__list__item__dates">
                             <span className="ico"><FontAwesomeIcon icon={faCalendarDays} /></span> 
-                            <span className="from">{exp.dateFrom}</span>
+                            <span className="from">{item.dateFrom}</span>
                             <span className="sep"> - </span>
-                            {exp.dateTo === 'current' ? (
+                            {item.dateTo === 'current' ? (
                                 <span className="to current">Obecnie</span>
                             ) : (
-                                <span className="to">{exp.dateTo}</span>
+                                <span className="to">{item.dateTo}</span>
                             )}
                         </p>
-                        <p>{exp.description}</p>
+                        <p>{item.description}</p>
                     </li>
                 ))}
             </ul>
         </div>
     );
 };
-
 
 export default Experience;

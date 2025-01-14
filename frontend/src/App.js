@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import About from './pages/Web/About/About';
@@ -16,27 +16,32 @@ import './App.scss';
 
 // Komponent ochrony tras, sprawdzający, czy użytkownik jest zalogowany
 const ProtectedRoute = ({ children }) => {
-    const { isLoggedIn } = useAuth(); // Sprawdzamy, czy użytkownik jest zalogowany
-    
-    // Jeśli nie jest zalogowany, przekierowujemy do strony logowania
-    return isLoggedIn ? children : <Navigate to="/login" />;
-  };
+  const { isLoggedIn } = useAuth(); // Sprawdzamy, czy użytkownik jest zalogowany
+  
+  // Jeśli nie jest zalogowany, przekierowujemy do strony logowania
+  return isLoggedIn ? children : <Navigate to="/login" />;
+};
 
 // Komponent ochrony tras dla niezalogowanych użytkowników (trasa logowania)
 const PublicRoute = ({ children }) => {
-    const { isLoggedIn } = useAuth(); // Sprawdzamy, czy użytkownik jest zalogowany
-    
-    // Jeśli jest zalogowany, przekierowujemy na stronę główną lub dashboard
-    return !isLoggedIn ? children : <Navigate to="/dashboard" />;
-  };
+  const { isLoggedIn } = useAuth(); // Sprawdzamy, czy użytkownik jest zalogowany
   
+  // Jeśli jest zalogowany, przekierowujemy na stronę główną lub dashboard
+  return !isLoggedIn ? children : <Navigate to="/dashboard" />;
+};
 
 const App = () => {
+  
+  const [showNav, setShowNav] = useState(false);
+  const toggleNavVisibility = () => {
+    setShowNav((prev) => !prev);
+  };
   return (
     <AuthProvider> 
       <Router>
           <div className="main">
-            <div className="box">
+          <div className="navboxbtn" onClick={toggleNavVisibility}></div>
+            <div className={`navbox box ${showNav ? 'open' : ''}`}>
                 <Header />
             </div>
             <div className="mainbox box">
