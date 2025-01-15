@@ -1,8 +1,9 @@
-// src/pages/Cms/Login/LoginForm.js
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLock, faLockOpen } from '@fortawesome/free-solid-svg-icons';
 import './Login.scss';
+import { useAuth } from '../../../context/AuthContext'; // Importujemy useAuth, aby uzyskać funkcję login
+import { hashPassword } from '../../../utils/common'; // Importujemy funkcję z utils/common
 
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -10,6 +11,7 @@ const LoginForm = () => {
     username: '',
     password: ''
   });
+  const { login } = useAuth(); // Pobieramy funkcję login z kontekstu
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -23,10 +25,33 @@ const LoginForm = () => {
     setShowPassword(!showPassword);
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const { username, password } = formData;
+    
+    try {
+      // Haszowanie hasła przed wysłaniem
+      const hashedPassword = await hashPassword(password);
+  
+      // Teraz możesz wysłać hashedPassword do backendu
+      const credentials = {
+        username: username,
+        password: hashedPassword,  // Wysyłamy haszowane hasło
+      };
+      
+      login(credentials);
+  
+    } catch (error) {
+      console.error("Error hashing password:", error);
+    }
+  };
+  
+
   return (
     <div className="login-container">
       <h2>Logowanie <span>do CMS</span></h2>
-      <form className="login-form">
+      <form className="login-form" onSubmit={handleSubmit}> {/* Dodajemy obsługę submit */}
         <div className="input-group">
           <input
             type="text"

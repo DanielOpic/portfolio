@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Experience.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarDays } from '@fortawesome/free-solid-svg-icons';
-import { API_BASE_URL } from '../../../config/api'; // Import endpointu
+import { fetchPublicData } from '../../../api/api'; // Importujemy funkcję z api.js
 
 const Experience = () => {
     const [items, setItems] = useState([]); // Domyślnie pusta lista
@@ -10,23 +10,16 @@ const Experience = () => {
     const [error, setError] = useState(null); // Flaga błędów
 
     useEffect(() => {
-        // Pobranie danych z API
-        console.log(API_BASE_URL)
-        fetch(`${API_BASE_URL}/experience`)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Błąd w trakcie pobierania danych!');
-                }
-                return response.json();
-            })
-            .then(data => {
-                setItems(data); // Ustawienie pobranych danych
-                setLoading(false); // Wyłączenie ładowania
-            })
-            .catch(err => {
-                setError(err.message);
-                setLoading(false); // Wyłączenie ładowania mimo błędu
-            });
+        // Pobranie danych z API bez potrzeby autoryzacji (publiczne dane)
+        fetchPublicData('/experience') // Wywołanie publicznej funkcji z api.js
+          .then(data => {
+            setItems(data); // Ustawienie pobranych danych
+            setLoading(false); // Wyłączenie ładowania
+          })
+          .catch(err => {
+            setError(err.message);
+            setLoading(false); // Wyłączenie ładowania mimo błędu
+          });
     }, []); // Tylko raz przy montowaniu komponentu
 
     if (loading) {
