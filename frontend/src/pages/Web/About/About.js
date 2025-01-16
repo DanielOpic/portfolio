@@ -4,15 +4,14 @@ import './About.scss';
 const About = () => {
     return (
         <div className="about">
-            <img src="/img/profilowe.jpg" alt="Moje zdjęcie" className="about__image" />
             <div className="about__content">
                 <h2>O <span>mnie</span></h2>
                 <h3>FullStack Developer</h3>
                 <p>
-                    Zajmuje się programowaniem od 20 lat. Kiedy miałem 14 lat napisałem pierwszą stronę WWW i już wiedziałem, co chcę robić w życiu. Od czasów studiów pracuję w branży IT, będąc zatrudnionym jako programista, team leader, CTO, a także prowadząc, własną działalność. Projektowałem systemy CRM, CMS i eCommerce od podstaw oraz wspierałem rozwój już istniejącego oprogramowania. 
+                    Jestem doświadczonym programistą z pasją do tworzenia ciekawych i innowacyjnych rozwiązań. Mam bogate doświadczenie w pracy z różnymi technologiami, zarówno w zakresie backendu, jak i frontendu, co pozwala mi na pełne zrozumienie cyklu życia aplikacji. Specjalizuję się w tworzeniu aplikacji webowych, systemów CRM, CMS oraz rozwiązań eCommerce. Posiadam umiejętność szybkiego przyswajania nowych technologii, co pozwala mi efektywnie dostosować się do zmieniających się wymagań projektów. 
                 </p>
                 <p>
-                    Dobrze odnajduję się w zespole. Potrafię brać odpowiedzialność za własną pracę. Cechuje się dużą zaradnością i elastycznością, jeśli chodzi o technologię, programowanie, nieszablonowe rozwiązania oraz kontakt z klientem.
+                    W mojej pracy kładę duży nacisk na użyteczność aplikacji, dbając o pozytywne doświadczenia (UX) oraz intuicyjny i estetyczny interfejs (UI), co przekłada się na satysfakcję i zaangażowanie użytkowników. Zawsze staram się łączyć technologię z funkcjonalnością, aby aplikacje były nie tylko wydajne, ale także łatwe i przyjemne w użytkowaniu.
                 </p>
             </div>
         </div>

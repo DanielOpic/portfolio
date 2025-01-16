@@ -10,7 +10,6 @@ const Edit = ({ currentId, onChangeViewMode  }) => {
       id:           currentId,
       title:        '',
       description:  '',
-      image:        '',
     });
 
   }, [currentId]); // Będzie wywoływać się przy zmianie currentId

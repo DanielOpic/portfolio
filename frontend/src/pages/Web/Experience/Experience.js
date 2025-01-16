@@ -36,16 +36,16 @@ const Experience = () => {
             <ul className="experience__list">
                 {items.map((item) => (
                     <li key={item.id} className="experience__list__item">
-                        <h3>{item.title} - {item.company}</h3>
+                        <h3>{item.name} - {item.company}</h3>
 
                         <p className="experience__list__item__dates">
                             <span className="ico"><FontAwesomeIcon icon={faCalendarDays} /></span> 
-                            <span className="from">{item.dateFrom}</span>
+                            <span className="from">{item.fromdate}</span>
                             <span className="sep"> - </span>
-                            {item.dateTo === 'current' ? (
+                            {item.current == 1 ? (
                                 <span className="to current">Obecnie</span>
                             ) : (
-                                <span className="to">{item.dateTo}</span>
+                                <span className="to">{item.todate}</span>
                             )}
                         </p>
                         <p>{item.description}</p>

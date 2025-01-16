@@ -7,6 +7,7 @@ import Portfolio from './pages/Web/Portfolio/Portfolio';
 import Login from './pages/Cms/Login/Login';
 import Dashboard from './pages/Cms/Dashboard/Dashboard';
 import CmsPortfolio from './pages/Cms/Portfolio/Portfolio';
+import CmsExpirience from './pages/Cms/Expirience/Expirience';
 
 // Importowanie AuthContext i AuthProvider
 import { AuthProvider, useAuth } from './context/AuthContext'; 
@@ -79,6 +80,15 @@ const App = () => {
                   </ProtectedRoute>
                 } 
               />
+              <Route 
+                path="/cms/Expirience" 
+                element={
+                  <ProtectedRoute>
+                    <CmsExpirience /> {/* Tylko zalogowani użytkownicy będą mieli dostęp */}
+                  </ProtectedRoute>
+                } 
+              />
+
 
             </Routes>
             </div>

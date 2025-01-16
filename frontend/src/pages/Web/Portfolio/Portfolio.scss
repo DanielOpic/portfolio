@@ -15,16 +15,10 @@
             flex:0 0 23%;
             box-sizing: border-box;
             cursor: pointer;
-            &__image {
-                width: 100%;
-                height: auto;
-                border-radius: 8px;
-                margin-bottom: 5px;
-            }
             &__title {
                 width: 100%;
+                font-size: 22px;
                 height: auto;
-                min-height: 50px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
