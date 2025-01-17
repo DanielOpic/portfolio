@@ -12,9 +12,8 @@
             border-radius: 8px;
             margin:10px 1%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            flex:0 0 23%;
+            flex:0 0 48%;
             box-sizing: border-box;
-            cursor: pointer;
             &__title {
                 width: 100%;
                 font-size: 22px;
@@ -24,10 +23,22 @@
                 justify-content: center;
                 text-align: center;
             }
+            &__desc {
+                width: 100%;
+                font-size: 14px;
+                height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                min-height: 100px;
+            }
             &__link {
                 font-weight: bold;
-                text-align: right;
+                text-align: center;
                 font-size: 12px;
+                display: block;
+                cursor: pointer;
             }
 
 
