@@ -8,6 +8,13 @@ $color : #30d56c;
     border-radius: 15px;
     box-shadow: 3px 3px 3px #cdcdcd, -3px -3px 3px #fafafa;
 }
+@mixin border-down-styles {
+    padding: 10px;
+    border: 1px solid rgba(230,230,230,.5);
+    border-radius: 15px;
+    background-color: #fcfcfc;
+    box-shadow: 3px 3px 3px #fafafa, -3px -3px 3px #cdcdcd;
+}
 @mixin border-styles-hover {
     cursor: pointer;
     transition: all .3s ease, box-shadow 0.5s ease-in-out;
@@ -47,6 +54,10 @@ textarea:focus, input:focus, select:focus{
 .box {
     margin-top:50px;
     @include border-styles;
+}
+.boxdown {
+    margin-top:50px;
+    @include border-down-styles;
 }
 //nagłówki
 h1,h2,h3,h4,h5,h6{
@@ -116,8 +127,7 @@ h6{
     .navboxbtn{
         display: none;
         @media screen and (max-width: 1200px){
-            display: block;
-            position: absolute;
+            position: fixed;
             z-index: 101;
             top:10px;
             right: 10px;
@@ -127,6 +137,11 @@ h6{
             background-color: rgba(0,0,0,.8);
             border-radius: 10px;
             cursor: pointer;
+            color: #fff;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
     .mainbox{
@@ -136,5 +151,22 @@ h6{
         @media screen and (max-width: 1200px){
             margin-left: 0;
         }
+    }
+}
+
+.mypagination{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    list-style: none;
+    margin: 10px 0;
+    padding: 10px 0;
+    border-top: 1px solid #aaa;
+    .btn{
+        padding: 2px 5px;
+    }
+    &__no{
+        padding: 0 10px;
     }
 }

@@ -9,6 +9,10 @@ import Dashboard from './pages/Cms/Dashboard/Dashboard';
 import CmsPortfolio from './pages/Cms/Portfolio/Portfolio';
 import CmsExpirience from './pages/Cms/Expirience/Expirience';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons'; // Importujemy ikonę hamburgera
+
+
 // Importowanie AuthContext i AuthProvider
 import { AuthProvider, useAuth } from './context/AuthContext'; 
 
@@ -41,7 +45,7 @@ const App = () => {
     <AuthProvider> 
       <Router>
           <div className="main">
-          <div className="navboxbtn" onClick={toggleNavVisibility}></div>
+          <div className="navboxbtn" onClick={toggleNavVisibility}><FontAwesomeIcon icon={faBars} /></div>
             <div className={`navbox box ${showNav ? 'open' : ''}`}>
                 <Header />
             </div>

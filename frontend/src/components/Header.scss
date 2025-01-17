@@ -23,7 +23,11 @@ header {
             margin:10px 2%;
             width: 96%;
             box-sizing: border-box;
-            border:1px solid #ccc;
+            border-radius: 50%;
+        }
+        h2{
+            font-size: 32px;
+            text-align: center;
         }
         .linkedin__image{
             margin:10px 5%;

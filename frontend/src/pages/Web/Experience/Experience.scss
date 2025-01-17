@@ -1,6 +1,9 @@
 $color : #30d56c;
 .experience {
     padding: 20px;
+    @media screen and (max-width: 800px){
+        padding: 10px 0;
+    }
 
     h1 {
         font-size: 24px;
@@ -11,6 +14,9 @@ $color : #30d56c;
         list-style: none;
         padding: 0 0 0 50px;
         position: relative;
+        @media screen and (max-width: 800px){
+            padding: 0 0 0 0;
+        }
         &:before {
             background: #f3f5f8;
             box-shadow: inset 2px 2px 2px #cdcdcd, inset -2px -2px 2px #fafafa;
@@ -22,6 +28,9 @@ $color : #30d56c;
             width: 0.5rem;
             height: 100%;
             border-radius: 3em;
+            @media screen and (max-width: 800px){
+                display: none;
+            }
         }
         &__item {
             margin-bottom: 20px;
@@ -41,6 +50,9 @@ $color : #30d56c;
                     height: 16px;
                     border-radius: 3em;
                     opacity: .8;
+                    @media screen and (max-width: 800px){
+                        display: none;
+                    }
                 }
             }
             &__dates{

@@ -9,7 +9,8 @@ const Header = () => {
   return (
     <header>
       <nav>
-        <img src="/img/profilowe.jpg" alt="Moje zdjęcie" className="my__image" />
+        <img src="/img/profilowe.jpg" alt="Moje zdjęcie" className="my__image boxdown" />
+        <h2 className="mb-3">Daniel <span>Opic</span></h2>
         <ul>
           <li><Link className="btn" to="/">O mnie</Link></li>
           <li><Link className="btn" to="/experience">Doświadczenie</Link></li>
