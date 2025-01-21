@@ -1,7 +1,5 @@
 .about {
-    display: flex;
-    align-items: center;
-    padding: 20px;
+    padding: 20px 0;
 
     &__content {
         p {
@@ -10,6 +8,39 @@
             color:#444;
             text-align: justify;
             margin-top: 20px;
+        }
+    }
+
+    .skills{
+        background: #222;
+        padding: 20px 10px;
+        margin: 20px 0px;
+        h2{
+            color: #fff;
+        }
+        &__inside{
+            h3{
+                display: inline-block;
+                padding: 3px 15px;
+                font-weight: bold;
+                text-transform: uppercase;
+                font-size: 18px;
+                margin-top: 20px;
+                color:#aaa;
+            }
+            ul{
+                list-style: none;
+                display: flex;
+                flex-wrap: wrap;
+                padding-left: 20px;
+                li{
+                    margin:15px 10px 0 0;
+                    padding: 2px 15px;
+                    background-color: #444;
+                    color:#9d9984;
+                    border-radius: 0 10px 0 10px;
+                }
+            }
         }
     }
 }

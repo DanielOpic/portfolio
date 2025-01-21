@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { fetchPrivateData } from '../../../api/api'; // Importujemy funkcję z api.js
-import { fetchPublicData } from '../../../api/api'; // Importujemy funkcję z api.js
+import { fetchPrivateData, fetchPublicData } from '../../../api/api'; // Importujemy funkcję z api.js
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import głównego pliku CSS Bootstrapa
 
 const Edit = ({ currentId, onChangeViewMode  }) => {

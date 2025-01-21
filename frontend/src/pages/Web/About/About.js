@@ -1,4 +1,5 @@
 import React from 'react';
+import Skills from './Skills';
 import './About.scss';
 
 const About = () => {
@@ -14,6 +15,7 @@ const About = () => {
                     W mojej pracy kładę duży nacisk na użyteczność aplikacji, dbając o pozytywne doświadczenia (UX) oraz intuicyjny i estetyczny interfejs (UI), co przekłada się na satysfakcję i zaangażowanie użytkowników. Zawsze staram się łączyć technologię z funkcjonalnością, aby aplikacje były nie tylko wydajne, ale także łatwe i przyjemne w użytkowaniu.
                 </p>
             </div>
+            <Skills />
         </div>
     );
 };
