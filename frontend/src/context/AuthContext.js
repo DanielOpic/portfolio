@@ -74,7 +74,6 @@ export const AuthProvider = ({ children }) => {
           const data = await response.json();
           setIsLoggedIn(data.isAuthenticated); // Jeśli odpowiedź z backendu mówi, że użytkownik jest zalogowany, zmieniamy stan
         } catch (error) {
-          console.error('Error checking auth status:', error);
           setIsLoggedIn(false); // Jeśli wystąpił błąd, traktujemy to jako brak logowania
         }
       } else {
